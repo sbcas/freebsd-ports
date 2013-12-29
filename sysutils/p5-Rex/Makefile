@@ -10,13 +10,18 @@ PKGNAMEPREFIX=	p5-
 MAINTAINER=	sam@cassiba.com
 COMMENT=	Perl framework for automation and systems administration
 
-LICENSE=	AL2
+BUILD_DEPENDS=	p5-Net-SSH2>=0:${PORTSDIR}/net/p5-Net-SSH2 \
+	p5-Expect>=0:${PORTSDIR}/lang/p5-Expect \
+	p5-DBI>=0:${PORTSDIR}/databases/p5-DBI \
+	p5-Digest-HMAC>=0:${PORTSDIR}/security/p5-Digest-HMAC \
+	p5-HTTP-Date>=0:${PORTSDIR}/www/p5-HTTP-Date \
+	p5-JSON-XS>=0:${PORTSDIR}/converters/p5-JSON-XS \
+	p5-libwww>=0:${PORTSDIR}/www/p5-libwww \
+	p5-String-Escape>=0:${PORTSDIR}/textproc/p5-String-Escape \
+	p5-XML-Simple>=0:${PORTSDIR}/textproc/p5-XML-Simple \
+	p5-YAML>=0:${PORTSDIR}/textproc/p5-YAML
 
-RUN_DEPENDS=	\
-	p5-Net-SSH2>0:${PORTSDIR}/net/p5-Net-SSH2 \
-	p5-Expect>0:${PORTSDIR}/lang/p5-Expect \
-	p5-DBI>0:${PORTSDIR}/databases/p5-DBI
-BUILD_DEPENDS:=	${RUN_DEPENDS}
+RUN_DEPENDS:=	${BUILD_DEPENDS}
 
 USES=	perl5
 USE_PERL5=	configure
