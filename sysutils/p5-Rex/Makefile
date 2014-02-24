@@ -1,7 +1,7 @@
-# $FreeBSD$
+# $FreeBSD: head/sysutils/p5-Rex/Makefile 344129 2014-02-13 16:39:08Z az $
 
 PORTNAME=	Rex
-PORTVERSION=	0.43.7
+PORTVERSION=	0.44.5
 CATEGORIES=	sysutils perl5
 MASTER_SITES=	CPAN
 MASTER_SITE_SUBDIR=	CPAN:JFRIED
@@ -10,7 +10,10 @@ PKGNAMEPREFIX=	p5-
 MAINTAINER=	sam@cassiba.com
 COMMENT=	Perl framework for automation and systems administration
 
-BUILD_DEPENDS=	p5-Net-SSH2>=0:${PORTSDIR}/net/p5-Net-SSH2 \
+LICENSE=	APACHE20
+
+BUILD_DEPENDS=	\
+	p5-Net-SSH2>=0:${PORTSDIR}/net/p5-Net-SSH2 \
 	p5-Expect>=0:${PORTSDIR}/lang/p5-Expect \
 	p5-DBI>=0:${PORTSDIR}/databases/p5-DBI \
 	p5-Digest-HMAC>=0:${PORTSDIR}/security/p5-Digest-HMAC \
@@ -19,11 +22,14 @@ BUILD_DEPENDS=	p5-Net-SSH2>=0:${PORTSDIR}/net/p5-Net-SSH2 \
 	p5-libwww>=0:${PORTSDIR}/www/p5-libwww \
 	p5-String-Escape>=0:${PORTSDIR}/textproc/p5-String-Escape \
 	p5-XML-Simple>=0:${PORTSDIR}/textproc/p5-XML-Simple \
-	p5-YAML>=0:${PORTSDIR}/textproc/p5-YAML
+	p5-YAML>=0:${PORTSDIR}/textproc/p5-YAML \
+	p5-List-MoreUtils>=0:${PORTSDIR}/lang/p5-List-MoreUtils
 
 RUN_DEPENDS:=	${BUILD_DEPENDS}
 
-USES=	perl5
+USES=		perl5 shebangfix
 USE_PERL5=	configure
+
+SHEBANG_FILES=	lib/Rex/Commands/templates/append_if_no_such_line.tpl.pl
 
 .include <bsd.port.mk>
