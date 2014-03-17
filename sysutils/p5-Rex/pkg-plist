@@ -368,11 +368,3 @@ man/man1/rexify.1.gz
 @dirrmtry %%SITE_PERL%%/Rex/Box
 @dirrmtry %%SITE_PERL%%/Rex/Args
 @dirrmtry %%SITE_PERL%%/Rex
-@dirrmtry %%SITE_PERL%%/%%PERL_ARCH%%/auto
-@dirrmtry %%SITE_PERL%%/%%PERL_ARCH%%
-@dirrmtry %%SITE_PERL%%
-@dirrmtry lib/perl5/site_perl
-@dirrmtry %%PERL5_MAN3%%
-@dirrmtry lib/perl5/%%PERL_VER%%/man
-@dirrmtry lib/perl5/%%PERL_VER%%
-@dirrmtry lib/perl5
