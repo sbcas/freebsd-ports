@@ -1,7 +1,7 @@
-# $FreeBSD: head/sysutils/p5-Rex/Makefile 344129 2014-02-13 16:39:08Z az $
+# $FreeBSD: head/sysutils/p5-Rex/Makefile 352985 2014-05-05 09:36:33Z az $
 
 PORTNAME=	Rex
-PORTVERSION=	0.46.0
+PORTVERSION=	0.46.1
 CATEGORIES=	sysutils perl5
 MASTER_SITES=	CPAN
 MASTER_SITE_SUBDIR=	CPAN:JFRIED
