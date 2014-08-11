@@ -26,15 +26,10 @@ SHEBANG_FILES=	setup_pkgloader.py setup_skytools.py \
 		scripts/simple_consumer.py scripts/simple_local_consumer.py \
 		scripts/skytools_upgrade.py
 
-MAN1=	londiste3.1 pgqd.1 qadmin.1 queue_mover3.1 \
-	queue_splitter3.1 scriptmgr.1 simple_consumer3.1 simple_local_consumer3.1 \
-	skytools_upgrade.1 walmgr.1
-
 CONFIGURE_ARGS=	--with-python=${PYTHON_CMD} \
 		--docdir=${EXAMPLESDIR} \
 		--with-pgconfig=${LOCALBASE}/bin/pg_config
 
-#NO_STAGE=	yes
 post-patch:
 	@${REINPLACE_CMD} -e 's=share/doc=share/examples=' ${WRKSRC}/setup_skytools.py
 
