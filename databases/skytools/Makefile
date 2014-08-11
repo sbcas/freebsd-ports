@@ -1,0 +1,41 @@
+# Created by: Sergey Skvortsov <skv@protey.ru>
+# $FreeBSD: head/databases/skytools/Makefile 360691 2014-07-04 23:48:56Z bapt $
+
+PORTNAME=	skytools
+PORTVERSION=	3.2
+CATEGORIES=	databases
+MASTER_SITES=	http://pgfoundry.org/frs/download.php/3622/
+
+MAINTAINER=	sam@cassiba.com
+COMMENT=	PostgreSQL tools from Skype: walshipping, queueing, replication
+
+GNU_CONFIGURE=	yes
+USES=		gmake shebangfix
+
+USE_PGSQL=	yes
+USE_PYTHON=	2
+INSTALLS_EGGINFO=	yes
+
+python_OLD_CMD=	/usr/bin/env python
+python_CMD=	/usr/bin/env python2
+SHEBANG_FILES=	setup_pkgloader.py setup_skytools.py \
+		scripts/catsql.py scripts/data_maintainer.py \
+		scripts/find_sql_functions.py scripts/grantfu.py \
+		scripts/queue_loader.py scripts/queue_splitter.py \
+		scripts/queue_mover.py scripts/scriptmgr.py \
+		scripts/simple_consumer.py scripts/simple_local_consumer.py \
+		scripts/skytools_upgrade.py
+
+MAN1=	londiste3.1 pgqd.1 qadmin.1 queue_mover3.1 \
+	queue_splitter3.1 scriptmgr.1 simple_consumer3.1 simple_local_consumer3.1 \
+	skytools_upgrade.1 walmgr.1
+
+CONFIGURE_ARGS=	--with-python=${PYTHON_CMD} \
+		--docdir=${EXAMPLESDIR} \
+		--with-pgconfig=${LOCALBASE}/bin/pg_config
+
+#NO_STAGE=	yes
+post-patch:
+	@${REINPLACE_CMD} -e 's=share/doc=share/examples=' ${WRKSRC}/setup_skytools.py
+
+.include <bsd.port.mk>
