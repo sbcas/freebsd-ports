@@ -33,4 +33,9 @@ CONFIGURE_ARGS=	--with-python=${PYTHON_CMD} \
 post-patch:
 	@${REINPLACE_CMD} -e 's=share/doc=share/examples=' ${WRKSRC}/setup_skytools.py
 
+post-install:
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/pgqd
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/${PYTHON_SITELIBDIR}/skytools/*.so
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/postgresql/*.so
+
 .include <bsd.port.mk>
