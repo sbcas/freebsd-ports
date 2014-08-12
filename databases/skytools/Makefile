@@ -35,7 +35,7 @@ post-patch:
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/pgqd
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/${PYTHON_SITELIBDIR}/skytools/*.so
+	${STRIP_CMD} ${STAGEDIR}${PYTHON_SITELIBDIR}/skytools/*.so
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/postgresql/*.so
 
 .include <bsd.port.mk>
